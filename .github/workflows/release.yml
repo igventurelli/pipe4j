@@ -25,6 +25,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
       - name: Install dependencies
         run: npm i @conveyal/maven-semantic-release
       - name: Release
