@@ -35,7 +35,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          java -version \
           npx semantic-release \
           --prepare @conveyal/maven-semantic-release \
           --publish @semantic-release/github,@conveyal/maven-semantic-release \
