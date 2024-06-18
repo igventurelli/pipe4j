@@ -2,8 +2,8 @@
     <servers>
         <server>
             <id>ossrh</id>
-            <username>${{ secrets.CENTRAL_USERNAME }}</username>
-            <password>${{ secrets.CENTRAL_PASSWORD }}</password>
+            <username>${CENTRAL_USERNAME}</username>
+            <password>${CENTRAL_PASSWORD}</password>
         </server>
     </servers>
     <profiles>

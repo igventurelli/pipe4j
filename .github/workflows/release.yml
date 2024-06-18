@@ -34,8 +34,11 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPG_KEY : ${{ secrets.GPG_KEY }}
+          CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
         run: |
-          echo ${{ secrets.GPG_KEY }} > deploy.key && \
+          echo $GPG_KEY > deploy.key && \
           npx semantic-release \
           --prepare @conveyal/maven-semantic-release \
           --publish @semantic-release/github,@conveyal/maven-semantic-release \
