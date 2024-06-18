@@ -1,0 +1,22 @@
+<settings>
+    <servers>
+        <server>
+            <id>ossrh</id>
+            <username>${secrets.CENTRAL_USERNAME}</username>
+            <password>${secrets.CENTRAL_PASSWORD}</password>
+        </server>
+    </servers>
+    <profiles>
+        <profile>
+            <id>ossrh</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <gpg.executable>gpg</gpg.executable>
+                <gpg.keyname>${secrets.GPG_KEY_NAME}</gpg.keyname>
+                <gpg.passphrase>${secrets.GPG_PASSPHRASE}</gpg.passphrase>
+            </properties>
+        </profile>
+    </profiles>
+</settings>
