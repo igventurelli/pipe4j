@@ -49,8 +49,8 @@ jobs:
           --verify-release @conveyal/maven-semantic-release \
           --skip-maven-deploy
       - name: Publish to Maven Central
-        run: GPG_TTY=$(tty) mvn deploy
+        run: mvn deploy
         env:
-          OSSRH_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
-          OSSRH_TOKEN: ${{ secrets.CENTRAL_PASSWORD }}
+          MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+          MAVEN_CENTRAL_TOKEN: ${{ secrets.CENTRAL_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
