@@ -40,21 +40,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          SEMANTIC_RELEASE_OUTPUT=$(npx semantic-release \
+          npx semantic-release \
           --prepare @conveyal/maven-semantic-release \
           --publish @semantic-release/github,@conveyal/maven-semantic-release \
           --verify-conditions @semantic-release/github,@conveyal/maven-semantic-release \
           --verify-release @conveyal/maven-semantic-release \
           --skip-maven-deploy \
-          --use-conveyal-workflow) | tail -n 1
-          echo "out=$SEMANTIC_RELEASE_OUTPUT"  >> "$GITHUB_OUTPUT"
-          echo "$SEMANTIC_RELEASE_OUTPUT"
+          --use-conveyal-workflow
 
   publish-maven-central:
     name: Publish on Maven Central
     runs-on: ubuntu-latest
     needs: generate-new-version
-    if: ${{ (!contains(needs.generate-new-version.outputs.out, 'There are no relevant changes, so no new version is released')) && (needs.generate-new-version.status == 'success') }}
     steps:
       - name: Setup Java
         uses: actions/setup-java@v4
