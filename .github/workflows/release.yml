@@ -48,7 +48,7 @@ jobs:
           --skip-maven-deploy \
           --use-conveyal-workflow) | tail -n 1 \
           && echo "out=$SEMANTIC_RELEASE_OUTPUT"  >> "$GITHUB_OUTPUT" \
-          && echo $GITHUB_OUTPUT
+          && echo "$GITHUB_OUTPUT"
 
   publish-maven-central:
     name: Publish on Maven Central
