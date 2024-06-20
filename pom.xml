@@ -6,7 +6,7 @@
 
     <groupId>io.igventurelli</groupId>
     <artifactId>pipe4j</artifactId>
-    <version>1.0.28-SNAPSHOT</version>
+    <version>1.0.28</version>
 
     <name>Pipe4j</name>
     <description>A cleaner way to write plain Java code through a pipeline, handling exceptions on the 21st century way</description>
